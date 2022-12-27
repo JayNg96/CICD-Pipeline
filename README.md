@@ -30,11 +30,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Objectives:
-- Develop and deploy an internship allocation system. 
-- The system shall assist the internship office in their bi-semester processes. 
-- The system is to assist and automate certain processes that are currently manually carried out by 
-- the internship office.
+The internship office has decided to enlist the assistance of the DevOps Team to 
+develop and deploy an internship allocation system. The system shall assist the 
+internship office in their bi-semester processes. In particular, the system is to 
+assist and automate certain processes that are currently manually carried out by 
+the internship office.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -45,13 +45,21 @@ This is an example of how you may give instructions on setting up your project l
 To get a local copy up and running follow these simple example steps.
 
 ### Requirements gathering flow
+
 ### Backlog issues creation flow
+
 ### Git usage strategy
+
 ### Change requirement strategy
+
 ### Deployment strategy
+
 ### Delivery strategy
+
 ### Communications strategy
+
 ### Monitoring strategy
+
 ### Metrics for passing or failing
 
 <!-- ROADMAP -->

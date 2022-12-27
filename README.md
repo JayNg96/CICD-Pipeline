@@ -1,8 +1,5 @@
 <a name="readme-top"></a>
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Issues][issues-shield]][issues-url]
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -33,8 +30,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 Objectives:
 - Develop and deploy an internship allocation system. 
 - The system shall assist the internship office in their bi-semester processes. 
@@ -59,7 +54,6 @@ To get a local copy up and running follow these simple example steps.
 ### Monitoring strategy
 ### Metrics for passing or failing
 
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -75,21 +69,6 @@ See the [open issues](https://github.com/JayNg96/CICD-Pipeline/issues) for a ful
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Img Shields](https://shields.io)
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/JayNg96/CICD-Pipeline/graphs/contributors
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues

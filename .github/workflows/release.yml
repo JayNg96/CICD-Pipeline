@@ -20,10 +20,6 @@ jobs:
       with:
         repository: JayNg96/CICD-Pipeline
         
-    - name: list our contents
-      run: |
-        ls
-        
     - name: test with pytest
       run: |
         pytest test.py -v -cov --junitxml=report.xml

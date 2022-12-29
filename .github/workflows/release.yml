@@ -97,6 +97,6 @@ jobs:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          Files will be downloadable below.
-        document: content.zip
+          Files Version ${{ env.RELEASE_VERSION }}.zip will be downloadable below.
+        document: ${{ env.RELEASE_VERSION }}.zip
     

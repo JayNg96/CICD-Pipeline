@@ -20,8 +20,7 @@ jobs:
         repository: JayNg96/CICD-Pipeline
     - name: list our contents
       run: |
-        ls downloads
-        ls releases
+        ls ./downloads
         ls
     - name: test with pytest
       run: |

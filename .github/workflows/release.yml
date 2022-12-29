@@ -72,7 +72,7 @@ jobs:
       with:
         upload_url: ${{ steps.create-new-release.outputs.upload_url }}
         asset_path: ./content.zip
-        asset_name: ${{ env.RELEASE_VERSION }}.zip
+        asset_name: NewReleases.zip
         asset_content_type: applications/zip
         
     - name: create folder for release zip
@@ -100,5 +100,5 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        document: releases/${{ env.RELEASE_VERSION }}.zip
+        document: NewReleases.zip
     

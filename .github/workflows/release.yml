@@ -20,6 +20,8 @@ jobs:
         repository: JayNg96/CICD-Pipeline
     - name: list our contents
       run: |
+        ls downloads
+        ls releases
         ls
     - name: test with pytest
       run: |
@@ -76,6 +78,12 @@ jobs:
         asset_name: ${{ env.RELEASE_VERSION }}.zip
         asset_content_type: applications/zip
         
+    - name: create folder for release zip
+      run: mkdir releases
+      
+    - name: move zip to releases
+      run: mv *.zip ./releases
+      
     - name: send report xml on push
       uses: appleboy/telegram-action@master
       with:
@@ -90,10 +98,10 @@ jobs:
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
         document: downloads/report.xml
         
-    - name: send report xml on push
+    - name: send zip on push
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        document: ${{ env.RELEASE_VERSION }}.zip
+        document: releases/${{ env.RELEASE_VERSION }}.zip
     

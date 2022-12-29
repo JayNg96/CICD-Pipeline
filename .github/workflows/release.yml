@@ -14,14 +14,16 @@ jobs:
     - name: Install Libraries
       run: |
         pip install flake8 pytest pytest-cov
+        
     - name: Checkout Own Repo
       uses: actions/checkout@v2
       with:
         repository: JayNg96/CICD-Pipeline
+        
     - name: list our contents
       run: |
-        ls ./downloads
         ls
+        
     - name: test with pytest
       run: |
         pytest test.py -v -cov --junitxml=report.xml

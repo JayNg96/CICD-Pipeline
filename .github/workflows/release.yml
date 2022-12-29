@@ -76,4 +76,17 @@ jobs:
         asset_name: ${{ env.RELEASE_VERSION }}.zip
         asset_content_type: applications/zip
         
+    - name: send telegram message on push
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: |
+          ${{ github.actor }} created a new release: ${{ env.RELEASE_VERSION }}
+          Commit message: ${{ github.event.commits[0].message }}
+
+          Repository: ${{ github.repository }}
+
+          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+        documents: downloads/report.xml
     

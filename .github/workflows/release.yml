@@ -46,12 +46,14 @@ jobs:
       with: 
         name: assetDocuments
         path: downloads
+        
     - name: Set environment version
       run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
     - name: download remote information
       uses: actions/download-artifact@v2
       with:
         name: assetDocuments
+        
     - name: create release
       id: create-new-release
       uses: actions/create-release@v1
@@ -72,15 +74,9 @@ jobs:
       with:
         upload_url: ${{ steps.create-new-release.outputs.upload_url }}
         asset_path: ./content.zip
-        asset_name: NewReleases.zip
+        asset_name: ${{ env.RELEASE_VERSION }}.zip
         asset_content_type: applications/zip
         
-    - name: create folder for release zip
-      run: mkdir releases
-      
-    - name: move zip to releases
-      run: mv *.zip ./releases
-      
     - name: send report xml on push
       uses: appleboy/telegram-action@master
       with:
@@ -102,5 +98,5 @@ jobs:
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
           Files will be downloadable below.
-        document: releases/NewReleases.zip
+        document: content.zip
     

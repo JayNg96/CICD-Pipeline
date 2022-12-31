@@ -37,7 +37,7 @@ jobs:
         junit_files: "report.xml"
         
     - name: remove folder
-      run: rmdir downloads
+      run: rm downloads
       
     - name: create folder
       run: mkdir downloads

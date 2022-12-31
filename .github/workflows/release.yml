@@ -36,17 +36,20 @@ jobs:
       with:
         junit_files: "report.xml"
         
+    - name: remove folder
+      run: rmdir downloads
+      
     - name: create folder
-      run: mkdir testReports
+      run: mkdir downloads
     
     - name: move files
-      run: mv *.xml ./testReports
+      run: mv *.xml ./downloads
       
     - name: Upload document
       uses: actions/upload-artifact@v2
       with: 
         name: assetDocuments
-        path: testReports
+        path: downloads
         
     - name: Set environment version
       run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV

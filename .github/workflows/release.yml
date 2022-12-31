@@ -1,8 +1,8 @@
-name: Releases
-on:
+name: Release
+on: 
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -35,7 +35,7 @@ jobs:
       if: always()
       with:
         junit_files: "report.xml"
-      
+        
     - name: create folder
       run: mkdir downloads
     
@@ -54,17 +54,15 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: assetDocuments
-
+          
     - name: create release
       id: create-new-release
       uses: actions/create-release@v1
-      if: ${{ steps.changelog.outputs.skipped == 'false' }}
       env:
-        GITHUB_TOKEN: ${{ secrets.github_token }}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       with:
-        tag_name: ${{ steps.changelog.outputs.tag }}
-        release_name: ${{ steps.changelog.outputs.tag }}
-        body: ${{ steps.changelog.outputs.clean_changelog }}
+        tag_name: ${{ env.RELEASE_VERSION }}
+        release_name: Release ${{env.RELEASE_VERSION }}
     
     - name: Archive site content
       uses: thedoctor0/zip-release@master
@@ -89,11 +87,9 @@ jobs:
         message: |
           ${{ github.actor }} created a new release: ${{ env.RELEASE_VERSION }}
           Commit message: ${{ github.event.commits[0].message }}
-
           Repository: ${{ github.repository }}
-
           See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-        document: testReports/report.xml
+        document: downloads/report.xml
         
     - name: send zip on push
       uses: appleboy/telegram-action@master
@@ -103,4 +99,3 @@ jobs:
         message: |
           Files Version ${{ env.RELEASE_VERSION }}.zip will be downloadable below.
         document: ${{ env.RELEASE_VERSION }}.zip
-    
